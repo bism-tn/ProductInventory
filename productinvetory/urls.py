@@ -19,9 +19,9 @@ from django.urls import path
 from productapp.views import AddproductView,ReadAllProductView,UpdateProductView,DeleteProductView
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('Product/AddProduct',AddproductView.as_view()),
+    path('Product/AddProduct',AddproductView.as_view(),name="addproduct"),
     path('Product/ShowProducts',ReadAllProductView.as_view(),name="allproducts"),
-    path("Product/update/<int:pk>",UpdateProductView.as_view()),
-    path("Product/delete/<int:pk>",DeleteProductView.as_view()),
+    path("Product/update/<int:pk>",UpdateProductView.as_view(),name="update"),
+    path("Product/delete/<int:pk>",DeleteProductView.as_view(),name="delete"),
 ]
 

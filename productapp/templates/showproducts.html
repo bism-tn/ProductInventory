@@ -14,13 +14,18 @@
 
 <body>
     {%csrf_token%}
-    <a href=""></a>
+    <a href="{% url 'addproduct'  %}" class="btn btn-primary">Add Product</a>
+    
+    
     <table class="table table-bordered">
         <tr>
             <th>Name</th>
             <th>Category</th>
             <th>Price</th>
             <th>Quantity</th>
+            <th>Update</th>
+            <th>Delete</th>
+           
         </tr>
 
         {%for i in form%}
@@ -40,6 +45,16 @@
                 {{i.price}}
             </td>
             <td>{{i.quantity}}</td>
+
+           
+                <td><a href="{% url 'update' pk=i.id %}" class="btn btn-primary">Update</a>
+                </td>
+                <td><a href="{% url 'delete' pk=i.id %}" class="btn btn-danger">Delete</a>
+                </td>
+                
+                
+
+           
 
 
         </tr>
